@@ -4,64 +4,64 @@ import { getFeaturedEvents } from '../dummy-data';
 import EventList from '../components/events/event-list';
 import NewsletterRegistration from '../components/input/newsletter-registration';
 
-// function HomePage(props) {
-//   return (
-//     <div>
-//       <Head>
-//         <title>NextJS Events</title>
-//         <meta
-//           name='description'
-//           content='Find a lot of great events that allow you to evolve...'
-//         />
-//       </Head>
-//       <NewsletterRegistration />
-//       <EventList items={props.events} />
-//     </div>
-//   );
-// }
-
-// export async function getStaticProps() {
-//   const featuredEvents = await getFeaturedEvents();
-
-//   return {
-//     props: {
-//       events: featuredEvents,
-//     },
-//     revalidate: 1800,
-//   };
-// }
-
-// export default HomePage;
-
-
-import Link from 'next/link'
-
-export default function Home() {
-  // return (
-  //   <ul>
-  //     <li>
-  //       <Link href="/b" as="/a">
-  //         <a>a</a>
-  //       </Link>
-  //     </li>
-  //     <li>
-  //       <Link href="/a" as="/b">
-  //         <a>b</a>
-  //       </Link>
-  //     </li>
-  //   </ul>
-  // )
+function HomePage(props) {
   return (
-        <div>
-          <Head>
-            <title>NextJS Events</title>
-            <meta
-              name='description'
-              content='Find a lot of great events that allow you to evolve...'
-            />
-          </Head>
-          <NewsletterRegistration />
-          <EventList items={getFeaturedEvents()} />
-        </div>
-      );
+    <div>
+      <Head>
+        <title>NextJS Events</title>
+        <meta
+          name='description'
+          content='Find a lot of great events that allow you to evolve...'
+        />
+      </Head>
+      <NewsletterRegistration />
+      <EventList items={props.events} />
+    </div>
+  );
 }
+
+export async function getStaticProps() {
+  const featuredEvents = await getFeaturedEvents();
+
+  return {
+    props: {
+      events: featuredEvents,
+    },
+    revalidate: 1800,
+  };
+}
+
+export default HomePage;
+
+
+// import Link from 'next/link'
+
+// export default function Home() {
+//   // return (
+//   //   <ul>
+//   //     <li>
+//   //       <Link href="/b" as="/a">
+//   //         <a>a</a>
+//   //       </Link>
+//   //     </li>
+//   //     <li>
+//   //       <Link href="/a" as="/b">
+//   //         <a>b</a>
+//   //       </Link>
+//   //     </li>
+//   //   </ul>
+//   // )
+//   return (
+//         <div>
+//           <Head>
+//             <title>NextJS Events</title>
+//             <meta
+//               name='description'
+//               content='Find a lot of great events that allow you to evolve...'
+//             />
+//           </Head>
+//           <NewsletterRegistration />
+//           <EventList items={getFeaturedEvents()} />
+//         </div>
+//       );
+// }
